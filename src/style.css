@@ -1,0 +1,94 @@
+body {
+    background-color: white;
+    color: #6c757d;
+    display: block;
+    text-align: center;
+    font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
+    padding: 100px;
+}
+
+.container {
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: plum;
+    padding: 20px;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 50px;
+}
+
+.form-group {
+    padding: 15px 10px;
+    margin: 10px;
+    border: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: plum;
+    }
+
+.button {
+    background-color: plum;
+    color: white;
+    border: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 3px 15px;
+    margin: 10px 0px;
+    }
+
+.button:hover {
+    background-color: white;
+    color: plum
+}
+
+h1 {
+    color: plum;
+    font-family: "Borel", cursive;
+    font-size: 40px;
+    padding: 40px 0px 0px;
+}
+
+h2 {
+    font-size: 20px;
+    color: plum;
+    padding: 0;
+}
+
+h3, h4, h5, h6, h7 {
+    font-size: 20px;
+    color: plum;
+    padding: 20px 0px 0px;
+}
+
+h4, h5 {
+    padding: 0px;
+}
+
+h5 {
+    font-size: 14px;
+    color: #adb5bd;
+}
+
+ul {
+    list-style: none;
+    padding: 5px 10px 0px;
+    margin: 0px;
+}
+
+li {
+    padding: 5px;
+}
+
+footer {
+    color: gainsboro;
+    padding: 10px;
+}
+
+footer:hover {
+    font-style: italic;
+}
