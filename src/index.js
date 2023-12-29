@@ -51,26 +51,6 @@ function getApi(city) {
   return apiURL;
 }
 
-function displayMyTemperature(response) {
-  let temperature = Math.round(response.data.temperature.current);
-  
-  let h3 = document.querySelector("h3");
-  h3.innerHTML = response.data.city
-
-  let h4_1 = document.querySelector("#h4-1");
-  h4_1.innerHTML = temperature + "ºC"
-}
-
-function displayBaesTemperature(response) {
-  let temperature = Math.round(response.data.temperature.current);
-
-  let h6 = document.querySelector("h6");
-  h6.innerHTML = response.data.city
-
-  let h4_2 = document.querySelector("#h4-2");
-  h4_2.innerHTML = temperature + "ºC"
-}
-
 function showMyCity(event) {
   event.preventDefault();
   let myCityInfo = document.querySelector("#myCityInput");
@@ -92,6 +72,44 @@ myForm.addEventListener("submit", showMyCity)
 
 let baesForm = document.querySelector("#baesCity")
 baesForm.addEventListener("submit", showBaesCity)
+
+function displayMyTemperature(response) {
+  let temperature = Math.round(response.data.temperature.current);
+
+  let h3 = document.querySelector("h3");
+  h3.innerHTML = response.data.city
+
+  let h4_1 = document.querySelector("#h4-1");
+  h4_1.innerHTML = temperature + "ºC"
+
+  let myCondition = document.querySelector("#myCondition");
+  myCondition.innerHTML = response.data.condition.description
+
+  let myHumidity = document.querySelector("#myHumidity");
+  myHumidity.innerHTML = "Humidity: " + response.data.temperature.humidity + "%"
+
+  let myWind = document.querySelector("#myWind");
+  myWind.innerHTML = "Wind: " + response.data.wind.speed + " km/h"
+}
+
+function displayBaesTemperature(response) {
+  let temperature = Math.round(response.data.temperature.current);
+  
+  let h6 = document.querySelector("h6");
+  h6.innerHTML = response.data.city
+
+  let h4_2 = document.querySelector("#h4-2");
+  h4_2.innerHTML = temperature + "ºC"
+
+  let baesCondition = document.querySelector("#baesCondition");
+  baesCondition.innerHTML = response.data.condition.description
+  
+  let baesHumidity = document.querySelector("#baesHumidity");
+  baesHumidity.innerHTML = "Humidity: " + response.data.temperature.humidity + "%"
+
+  let baesWind = document.querySelector("#baesWind");
+  baesWind.innerHTML = "Wind: " + response.data.wind.speed + " km/h"
+}
 
 function createHeart() {
   const heart = document.createElement('div');
