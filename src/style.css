@@ -20,6 +20,7 @@ body {
 }
 
 .columns {
+    background-color: white;
     display: flex;
     justify-content: space-evenly;
     padding-top: 10px;
@@ -97,4 +98,8 @@ footer {
 
 footer:hover {
     font-style: italic;
+}
+
+.link {
+    color: plum;
 }
