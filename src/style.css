@@ -5,7 +5,7 @@ body {
     text-align: center;
     font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
     padding-top: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     padding-right: 70px;
     padding-left: 70px;
 }
@@ -16,9 +16,9 @@ body {
     border-radius: 5px;
     border-color: plum;
     padding-top: 10px;
+    padding-bottom: 0px;
     padding-right: 20px;
     padding-left: 20px;
-    padding-bottom: 5px;
 }
 
 .columns {
