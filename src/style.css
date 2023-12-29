@@ -11,6 +11,7 @@ body {
 }
 
 .container {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgb(255, 235, 255));
     border: solid;
     border-width: 1px;
     border-radius: 5px;
@@ -22,7 +23,7 @@ body {
 }
 
 .columns {
-    background-color: white;
+    background-color: transparent;
     display: flex;
     justify-content: space-evenly;
     padding-top: 10px;
@@ -94,7 +95,7 @@ li {
 }
 
 footer {
-    color: gainsboro;
+    color: #adb5bd;
     padding: 10px;
 }
 
