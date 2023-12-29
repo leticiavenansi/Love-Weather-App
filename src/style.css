@@ -20,7 +20,8 @@ body {
     background-color: transparent;
     display: flex;
     justify-content: space-evenly;
-    margin: 10px 10px 0 10px;
+    margin: 10px 10px 0px 0px;
+    padding: 0px;
 }
 
 .form-group {
@@ -55,25 +56,31 @@ h1 {
     padding: 40px 0px 0px;
 }
 
-h2 {
+h2, h3, h4, h5, h6 {
     font-size: 20px;
     color: plum;
-    padding: 0;
-}
-
-h3, h4, h5, h6, h7 {
-    font-size: 20px;
-    color: plum;
-    padding: 20px 0px 0px;
-}
-
-h4, h5 {
     padding: 0px;
+    margin: 0px;
 }
 
-h5 {
-    font-size: 14px;
-    color: #adb5bd;
+h3, h5 {
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+h4 {
+    vertical-align: middle;
+}
+
+.info {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 100;
+    
+}
+
+.hidden {
+    display: none;
 }
 
 ul {
@@ -86,9 +93,18 @@ li {
     padding: 5px;
 }
 
+.mainIcon {
+    align-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
 footer {
     color: #adb5bd;
-    padding: 10px;
+    font-size: 12px;
+    padding: 0px 10px 10px 0px;
 }
 
 footer:hover {

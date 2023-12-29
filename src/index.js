@@ -42,9 +42,6 @@ let month = months[now.getMonth()];
 
 h2.innerHTML = `${month} ${date}, ${year} - ${day} - ${hours}h${minutes}`;
 
-const h4_1 = document.getElementById("h4-1");
-const h4_2 = document.getElementById("h4-2");
-
 function getApi(city) {
   let apiKey = `6e4ob6303315b8eaafdbf6438bfe2aft`;
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -79,8 +76,11 @@ function displayMyTemperature(response) {
   let h3 = document.querySelector("h3");
   h3.innerHTML = response.data.city
 
-  let h4_1 = document.querySelector("#h4-1");
-  h4_1.innerHTML = temperature + "ºC"
+  let h4_1 = document.querySelector("#h4-1")
+  h4_1.className = ""
+
+  let myTemperature = document.querySelector("#myTemperature");
+  myTemperature.innerHTML = temperature + "ºC"
 
   let myCondition = document.querySelector("#myCondition");
   myCondition.innerHTML = response.data.condition.description
@@ -90,16 +90,22 @@ function displayMyTemperature(response) {
 
   let myWind = document.querySelector("#myWind");
   myWind.innerHTML = "Wind: " + response.data.wind.speed + " km/h"
+
+  let myIcon = document.querySelector("#myIcon");
+  myIcon.src = response.data.condition.icon_url
 }
 
 function displayBaesTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
   
-  let h6 = document.querySelector("h6");
-  h6.innerHTML = response.data.city
+  let h5 = document.querySelector("h5");
+  h5.innerHTML = response.data.city
 
-  let h4_2 = document.querySelector("#h4-2");
-  h4_2.innerHTML = temperature + "ºC"
+  let baesTemperature = document.querySelector("#baesTemperature");
+  baesTemperature.innerHTML = temperature + "ºC"
+
+  let h4_2 = document.querySelector("#h4-2")
+  h4_2.className = ""
 
   let baesCondition = document.querySelector("#baesCondition");
   baesCondition.innerHTML = response.data.condition.description
@@ -109,6 +115,9 @@ function displayBaesTemperature(response) {
 
   let baesWind = document.querySelector("#baesWind");
   baesWind.innerHTML = "Wind: " + response.data.wind.speed + " km/h"
+
+  let baesIcon = document.querySelector("#baesIcon");
+  baesIcon.src = response.data.condition.icon_url
 }
 
 function createHeart() {
