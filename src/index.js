@@ -54,12 +54,18 @@ function getApi(city) {
 function displayMyTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
   
+  let h3 = document.querySelector("h3");
+  h3.innerHTML = response.data.city
+
   let h4_1 = document.querySelector("#h4-1");
   h4_1.innerHTML = temperature + "ºC"
 }
 
 function displayBaesTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
+
+  let h6 = document.querySelector("h6");
+  h6.innerHTML = response.data.city
 
   let h4_2 = document.querySelector("#h4-2");
   h4_2.innerHTML = temperature + "ºC"
@@ -69,9 +75,6 @@ function showMyCity(event) {
   event.preventDefault();
   let myCityInfo = document.querySelector("#myCityInput");
 
-  let h3 = document.querySelector("h3");
-  h3.innerHTML = myCityInfo.value
-
   let apiURL = getApi(myCityInfo.value);
   axios.get(apiURL).then(displayMyTemperature)  
 } 
@@ -79,9 +82,6 @@ function showMyCity(event) {
 function showBaesCity(event) {
   event.preventDefault();
   let baesCityInfo = document.querySelector("#baesCityInput");
-
-  let h6 = document.querySelector("h6");
-  h6.innerHTML = baesCityInfo.value
 
   let apiURL = getApi(baesCityInfo.value);
   axios.get(apiURL).then(displayBaesTemperature)  
@@ -105,8 +105,8 @@ function createHeart() {
   document.body.appendChild(heart);
   
   setTimeout(() => {
-              heart.remove();
-              }, 5000);
+  heart.remove();
+  }, 5000);
 }
 
 setInterval(createHeart, 300);
