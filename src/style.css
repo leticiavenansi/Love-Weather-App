@@ -73,10 +73,8 @@ h4 {
 }
 
 .info {
-    text-align: center;
     font-size: 12px;
     font-weight: 100;
-    
 }
 
 .hidden {
@@ -84,6 +82,7 @@ h4 {
 }
 
 ul {
+    display: none;
     list-style: none;
     padding: 5px 10px 0px;
     margin: 0px;
