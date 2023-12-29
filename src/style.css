@@ -16,8 +16,9 @@ body {
     border-radius: 5px;
     border-color: plum;
     padding-top: 10px;
-    padding: 20px;
-    
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 5px;
 }
 
 .columns {
