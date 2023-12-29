@@ -23,6 +23,9 @@ body {
     display: flex;
     justify-content: space-evenly;
     gap: 50px;
+    padding-top: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .form-group {
