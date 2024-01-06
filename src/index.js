@@ -97,7 +97,7 @@ function displayMyTemperature(response) {
   let ul = document.querySelector("#ul1")
   ul.className = ""
 
-  displayMyForecast(response.data.city);
+  getMyForecast(response.data.city);
 }
 
 function getMyForecast(city) {
@@ -106,20 +106,29 @@ function getMyForecast(city) {
   axios(apiURL).then(displayMyForecast);
 }
 
+function formatMyDay (timestamp) {
+  let date = new Date (timestamp * 1000);
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  return days[date.getDay()];
+}
+
 function displayMyForecast(response) {
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let myForecastHTML = "";
 
-  days.forEach (function(day) {
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
     myForecastHTML = myForecastHTML + 
       `<div id="myForecast">
-        <img src="" class="forecastIcon" id="forecast-myIcon" />
-        <span id="forecast-myDay">${day}</span>
-        <br />
-        <span class="min-temp" id="forecast-myMinTemp">ºC</span> -
-        <span id="forecast-myMaxTemp">ºC</span>
+        <div class="forecastDay" id="forecast-myDay">${formatMyDay(day.time)}
+        <img src="${day.condition.icon_url}" class="forecastIcon" id="forecast-myIcon" /></div>
+        <div class="forecastTemperature">
+        <span class="min-temp" id="forecast-myMinTemp"> ${Math.round(day.temperature.minimum)}ºC</span> -
+        <span class ="max-temp" id="forecast-myMaxTemp"> ${Math.round(day.temperature.maximum)}ºC</span>
+        </div>
       </div>`
-  });
+  }
+    });
 
   let myForecast = document.querySelector("#myForecast");
   myForecast.innerHTML = myForecastHTML;

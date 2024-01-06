@@ -103,6 +103,23 @@ li {
     padding: 0;
 }
 
+.forecastIcon {
+    align-content: center;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.forecastDay {
+    font-size: 12px;
+    color: plum;
+}
+
+.forecastTemperature {
+    font-size: 12px;
+}
+
 footer {
     color: #adb5bd;
     font-size: 12px;
