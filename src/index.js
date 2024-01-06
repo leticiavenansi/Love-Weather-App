@@ -96,9 +96,17 @@ function displayMyTemperature(response) {
 
   let ul = document.querySelector("#ul1")
   ul.className = ""
+
+  displayMyForecast(response.data.city);
 }
 
-function displayMyForecast() {
+function getMyForecast(city) {
+  let apiKey = `6e4ob6303315b8eaafdbf6438bfe2aft`;
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiURL).then(displayMyForecast);
+}
+
+function displayMyForecast(response) {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let myForecastHTML = "";
 
@@ -116,8 +124,6 @@ function displayMyForecast() {
   let myForecast = document.querySelector("#myForecast");
   myForecast.innerHTML = myForecastHTML;
 }
-
-displayMyForecast();
 
 function displayBaesTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
