@@ -120,11 +120,11 @@ function displayMyForecast(response) {
     if (index < 5) {
     myForecastHTML = myForecastHTML + 
       `<div id="myForecast">
-        <div class="forecastDay" id="forecast-myDay">${formatMyDay(day.time)}
+        <div class="forecastDay">${formatMyDay(day.time)}
         <img src="${day.condition.icon_url}" class="forecastIcon" id="forecast-myIcon" /></div>
         <div class="forecastTemperature">
-        <span class="min-temp" id="forecast-myMinTemp"> ${Math.round(day.temperature.minimum)}ºC</span> -
-        <span class ="max-temp" id="forecast-myMaxTemp"> ${Math.round(day.temperature.maximum)}ºC</span>
+        <span class="min-temp"> ${Math.round(day.temperature.minimum)}ºC</span> -
+        <span class ="max-temp"> ${Math.round(day.temperature.maximum)}ºC</span>
         </div>
       </div>`
   }
@@ -160,6 +160,42 @@ function displayBaesTemperature(response) {
 
   let ul = document.querySelector("#ul2")
   ul.className = ""
+
+  getBaesForecast(response.data.city);
+}
+
+function getBaesForecast(city) {
+  let apiKey = `6e4ob6303315b8eaafdbf6438bfe2aft`;
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiURL).then(displayBaesForecast);
+}
+
+function formatBaesDay (timestamp) {
+  let date = new Date (timestamp * 1000);
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  return days[date.getDay()];
+}
+
+function displayBaesForecast(response) {
+  let baesForecastHTML = "";
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+    baesForecastHTML = baesForecastHTML + 
+      `<div id="baesForecast">
+        <div class="forecastDay">${formatMyDay(day.time)}
+        <img src="${day.condition.icon_url}" class="forecastIcon" /></div>
+        <div class="forecastTemperature">
+        <span class="min-temp"> ${Math.round(day.temperature.minimum)}ºC</span> -
+        <span class ="max-temp"> ${Math.round(day.temperature.maximum)}ºC</span>
+        </div>
+      </div>`
+  }
+    });
+
+  let baesForecast = document.querySelector("#baesForecast");
+  baesForecast.innerHTML = baesForecastHTML;
 }
 
 function createHeart() {
@@ -178,4 +214,4 @@ function createHeart() {
   }, 5000);
 }
 
-//setInterval(createHeart, 300);
+setInterval(createHeart, 300);
