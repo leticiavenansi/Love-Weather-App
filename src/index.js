@@ -93,7 +93,31 @@ function displayMyTemperature(response) {
 
   let myIcon = document.querySelector("#myIcon");
   myIcon.src = response.data.condition.icon_url
+
+  let ul = document.querySelector("#ul1")
+  ul.className = ""
 }
+
+function displayMyForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let myForecastHTML = "";
+
+  days.forEach (function(day) {
+    myForecastHTML = myForecastHTML + 
+      `<div id="myForecast">
+        <img src="" class="forecastIcon" id="forecast-myIcon" />
+        <span id="forecast-myDay">${day}</span>
+        <br />
+        <span class="min-temp" id="forecast-myMinTemp">ºC</span> -
+        <span id="forecast-myMaxTemp">ºC</span>
+      </div>`
+  });
+
+  let myForecast = document.querySelector("#myForecast");
+  myForecast.innerHTML = myForecastHTML;
+}
+
+displayMyForecast();
 
 function displayBaesTemperature(response) {
   let temperature = Math.round(response.data.temperature.current);
@@ -118,6 +142,9 @@ function displayBaesTemperature(response) {
 
   let baesIcon = document.querySelector("#baesIcon");
   baesIcon.src = response.data.condition.icon_url
+
+  let ul = document.querySelector("#ul2")
+  ul.className = ""
 }
 
 function createHeart() {
@@ -136,4 +163,4 @@ function createHeart() {
   }, 5000);
 }
 
-setInterval(createHeart, 300);
+//setInterval(createHeart, 300);

@@ -38,32 +38,8 @@
           <div id="myCondition" class="info"></div>
           <div id="myHumidity" class="info"></div>
           <div id="myWind" class="info"></div>
-          <ul>
-            <li>
-              ⛅ Today
-              <br />
-              12ºC - <strong>19ºC</strong>
-            </li>
-            <li>
-              ⛅ Tomorrow
-              <br />
-              12ºC - <strong>20ºC</strong>
-            </li>
-            <li>
-              ☀️ Sunday
-              <br />
-              14ºC - <strong>20ºC</strong>
-            </li>
-            <li>
-              ☀️ Monday
-              <br />
-              11ºC - <strong>19ºC</strong>
-            </li>
-            <li>
-              ☀️ Tuesday
-              <br />
-              9ºC - <strong>18ºC</strong>
-            </li>
+          <ul class="hidden" id="ul1">
+            <div id="myForecast"></div>
           </ul>
         </div>
 
@@ -80,36 +56,17 @@
           <div id="baesCondition" class="info"></div>
           <div id="baesHumidity" class="info"></div>
           <div id="baesWind" class="info"></div>
-          <ul>
+          <ul class="hidden" id="ul2">
             <li>
-              ☀️ Today
+              <img src="" class="forecastIcon" id="forecast-baesIcon" />
+              <span id="forecast-baesDay">Week Day</span>
               <br />
-              7ºC - <strong>14ºC</strong>
-            </li>
-            <li>
-              ⛅ Tomorrow
-              <br />
-              5ºC - <strong>14ºC</strong>
-            </li>
-            <li>
-              ☀️ Sunday
-              <br />
-              8ºC - <strong>17ºC</strong>
-            </li>
-            <li>
-              ☀️ Monday
-              <br />
-              6ºC - <strong>16ºC</strong>
-            </li>
-            <li>
-              ⛅ Tuesday
-              <br />
-              7ºC - <strong>16ºC</strong>
+              <span class="min-temp" id="forecast-baesMinTemp">ºC</span> -
+              <span id="forecast-baesMaxTemp">ºC</span>
             </li>
           </ul>
         </div>
       </div>
-
       <footer>
         This project was coded by
         <a class="link" href="https://github.com/leticiavenansi"
